@@ -1,4 +1,4 @@
-Here are my relevant config directories, as well as a list of all of the programs in my config directory (that are not being tracked):
+*Here are my relevant config directories, as well as a list of all of the programs in my config directory (that are not being tracked):*
 
 
 1. alacritty
