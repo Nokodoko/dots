@@ -25,4 +25,4 @@ vimb
 vis
 zathura
 zoomus.conf
-nvim
+.config/nvim
