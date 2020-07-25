@@ -86,9 +86,10 @@ bindsym $mod+Shift+q kill
 # Start Applications
 #unclutter &
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F1 exec firefox
-bindsym $mod+Shift+F1 exec qutebrowser
-bindsym $mod+F9 exec kitty -e zsh
+bindsym $mod+F1 exec qutebrowser
+bindsym $mod+Shift+F1 exec firefox
+bindsym $mod+F9 exec alacritty -e zsh
+bindsym $mod+Shift+F9 exec urxvt -e zsh
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F4 exec slack
 bindsym $mod+Down exec rofi -show 'window'
@@ -121,12 +122,16 @@ bindsym $mod+n exec kitty -e tty-clock -c
 bindsym $mod+Shift+B exec kitty -e nvim ~/.zshrc
 bindsym $mod+g exec kitty -e /usr/local/bin/buds.sh
 #bindsym $mod+m exec kitty -e neomutt
-bindsym $mod+y exec kitty -e gtop
-bindsym $mod+Shift+y exec kitty -e glances
+bindsym $mod+y exec alacritty -e gtop
+bindsym $mod+Shift+y exec alacritty -e glances
+bindsym $mod+q exec kitty -e nvim ~/.config/qutebrowser/config.py
 bindsym $mod+Shift+i exec kitty -e nvim ~/.config/nvim/init.vim
 bindsym $mod+Shift+z exec kitty -e glava
 bindsym $mod+F7 exec kitty -e xrandr --output eDP-1 --mode 1920x1080 --output DP-1-1 --off --output HDMI-1 --off
-bindsym $mod+F8 exec kitty -e xrandr --output DP-1-1 --mode 3840x2160 --output eDP-1 --off
+#bindsym $mod+F8 exec kitty -e xrandr --output DP-1-3 --mode 1920x1080 --rate 59.97 --output eDP-1 --off
+#bindsym $mod+F8 exec kitty -e xrandr --output DP-1-1 --mode 1920x1080 --output eDP-1 --off
+bindsym $mod+F8 exec kitty -e xrandr --output DP-1-3 --mode 3840x2160 --output eDP-1 --off
+#bindsym $mod+F20 exec kitty -e xrandr --output DP-1-2 --mode 1920x1080 --output DP-1-3 --mode 1920x1080 
 
 bindsym $mod+z exec --no-startup-id zoom
 #
