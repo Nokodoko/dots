@@ -4,6 +4,11 @@
 # / /\__ \ | | | | | (__ 
 #/___|___/_| |_|_|  \___|
 # If not running interactively, don't do anything
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 TERM="rxvt-256color"
 COLORTERM='rxvt-unicode-256color'
 export EDITOR='nvim'
@@ -14,11 +19,6 @@ bindkey -M vicmd v edit-command-line
 
 [[ $- != *i* ]] && return
 
-#5 - pink
-#4 - blue
-#3 - yellow
-#2 - green
-#1 - red
 
 pfetch
 export PF_COL1=4
@@ -28,9 +28,6 @@ export PF_COL3=5
 
 alias sudo='sudo '
 source /usr/share/fzf/completion.zsh
-#autoload -Uz promptinit
-#promptinit
-#prompt adam1
 alias mac='n0ko@Mac'
 alias s='scp'
 alias sr='scp -r'
@@ -51,50 +48,13 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lo
 # \___\___/|_|\___/|_|  |_____|____/ 
 #                                    
 
-#alias ls='ls --color=auto'
-alias lal='colorls -l'
+alias la='colorls -a'
 alias cat='bat'
 alias ls='colorls --sd'
 alias lr='colorls -r'
 alias tree='colorls --tree'
 alias lgit='colorls --gs'
 alias lgt='colorls --gs -t'
-#set VIMODE according to the current mode (default “[i]”)
-#VIMODE='[i]'
-#function zle-keymap-select {
-#VIMODE="${${KEYMAP/vicmd/[n]}/(main|viins)/[i]}"
-# zle reset-prompt
-#}
-#
-#zle -N zle-keymap-select
-#PROMPT='$FG[163]%>>%{$reset_color}'
-# Set the prompt to “[user]@[host[ [vi mode] $ ”
-#PROMPT="%n@%m ${VIMODE} \\$ "
-#PROMPT='>>'
-#export PS1="\n\[\e[32;1m\]($USER)-($JOB)-(\[\e[37;1m\]\w\[\e[32;1m\])\n(\[\[\e[37;1m\]! \!\[\e[32;1m\])-> \[\e[0m\]"
-export PS1="\n\[\e[32;1m\]($USER)-(\[\e[37;1m\]\w\[\e[32;1m\])\n(\[\[\e[37;1m\]! \!\[\e[32;1m\])-> \[\e[0m\]"
-#export PS1=\n\[\e[32;1m\](\[\e[37;1m\]\u\[\e[32;1m\])-(\[\e[37;1m\]jobs:\j\[\e[32;1m\])-(\[\e[37;1m\]\w\[\e[32;1m\])\n(\[\[\e[37;1m\]! \!\[\e[32;1m\])-> \[\e[0m\]
-
-#setopt promptsubst
-#PS1=$'%U${(r:$COLUMNS:: :)}%u'$PS1
-#
-#precmd() {
-#  LEFT="\n\[\e[32;1m\]($USER)-(\[\e[37;1m\]jobs:\j\[\e[32;1m\])-(\[\e[37;1m\]\w\[\e[32;1m\])\n(\[\[\e[37;1m\]! \!\[\e[32;1m\])-> \[\e[0m\]"
-#  RIGHT="$(date) "
-#  RIGHTWIDTH=$(($COLUMNS-${#LEFT}))
-#  print $LEFT${(l:$RIGHTWIDTH::.:)RIGHT}
-#}
-
-#precmd() {
-#  LEFT="$USER"
-#  RIGHT="$(date) "
-#  RIGHTWIDTH=$(($COLUMNS-${#LEFT}))
-##  print $LEFT${(l:$RIGHTWIDTH::.:)RIGHT}
-#}
-
-#PS1="% > "
-#RPS1="bar"
-
 set -o vi
 
 #Docker Tab Completion
@@ -110,7 +70,6 @@ autoload -Uz compinit && compinit -i
 #/_/   \_\_|_|\__,_|___/\___||___/
 #
 #Paths
-##alias -g (enter) '""'
 alias -s {html,go,css}=nvim
 alias see='kitty icat'
 alias x='startx'
@@ -122,7 +81,6 @@ alias e='exit'
 alias sb='source ~/.zshrc'
 alias dunstrc='nvim ~/.config/dunst/dunstrc'
 alias plug='cd ~/.config/nvim/plugged'
-#alias lal='ls -al'
 alias v='nvim'
 alias clock='tty-clock -c'
 alias god='sudo'
@@ -134,7 +92,7 @@ alias neo='neofetch'
 function m() {
   /usr/bin/man $* | \
     col -b | \
-    vim -R -c 'set ft=man nomod nolist' -
+    nvim -R -c 'set ft=man nomod nolist' -
 }
 alias xp='xprop'
 alias reset='make clean && rm -f config.h && git reset --hard origin/master'
@@ -178,6 +136,7 @@ function g1(){
   go run $1 | column
 }
 alias g='go run'
+alias gm='go run main.go'
 alias gg='go get -u'
 alias gb='go build'
 alias gf='go fmt'
@@ -188,9 +147,6 @@ alias gmv='go mod vendor'
 alias rs='cd ~/go/resources'
 function pro(){
     protoc -I ${PWD} --go_out=. $1
-    #mv \~/${PWD}/$1.pb.go ${PWD}
-    #rm -rf \~/
-    #protoc --go_out=. $1
 }
 
 function gmi(){
@@ -219,7 +175,6 @@ alias dni='docker network inspect'
 alias dpull='docker pull'
 alias dh='docker history'
 alias dt='docker tag'
-#alias df='docker system df'
 alias db='docker build -t'
 alias drmi='docker rmi'
 alias drm='docker rm'
@@ -351,6 +306,7 @@ alias goclass='cd ~/Videos/Udemy/Go/learn-how-to-code/'
 alias mit='cd ~/MIT'
 alias gosrc='cd ~/go/src'
 alias gol='cd ~/go/src/ && ls'
+alias gu='cd ~/goUltimate && v main.go'
 alias proj='cd ~/project_1/ && ls'
 alias serv='cd ~/go/src/service && ls -l' 
 alias gtrain='cd ~/go/src/gotraining && ls'
@@ -473,6 +429,8 @@ alias xo='xdg-open'
 #|_| \_|\___|\__| \_/\_/ \___/|_|  |_|\_\_|_| |_|\__, |
 #                                                |___/ 
 alias wifi='sudo netctl start'
+alias dad='sudo netctl start Dad'
+alias byedad='sudo netctl stop Dad'
 alias here='sudo netctl start homebase'
 alias here2='sudo netctl start homie'
 alias nothere='sudo netctl stop homebase'
@@ -482,15 +440,6 @@ alias northere='sudo netctl stop mobileC'
 alias why='sudo wifi-menu'
 alias air='aircrack-ng'
 alias blue='~/buds.sh'
-#alias here='~/here.sh'
-
-
-# galaxybuds 7C:38:AD:B8:59:82
-# power on
-# agent on
-# default-agent
-# connect [insert galaxybuds number]
-
 
 
 # ____  _           _                 
@@ -550,67 +499,3 @@ function kakashi() {
 } 
 
 bindkey '^ ' forward-word
-
-# ____                        _                _  ___  _    
-#|  _ \ _____      _____ _ __| | _____   _____| |/ _ \| | __
-#| |_) / _ \ \ /\ / / _ \ '__| |/ _ \ \ / / _ \ | (_) | |/ /
-#|  __/ (_) \ V  V /  __/ |  | |  __/\ V /  __/ |\__, |   < 
-#|_|   \___/ \_/\_/ \___|_|  |_|\___| \_/ \___|_|  /_/|_|\_\
-
-
-
-
-
-
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-POWERLEVEL9K_HOME_SUB_ICON=$'\UE18D '
-POWERLEVEL9K_LINUX_ICON='\uf300'
-# #zsh_wifi_signal(){
-#    local signal=$(nmcli device wifi | grep yes | awk '{print $8}')
-#    local color='%F{yellow}'
-#    [[ $signal -gt 75 ]] && color='%F{green}'
-#    [[ $signal -lt 50 ]] && color='%F{red}'
-#    echo -n "%{$color%}\uf230  $signal%{%f%}" # \uf230 is 
-#}
-#
-#POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="zsh_wifi_signal"
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context time battery dir vcs virtualenv custom_wifi_signal)
-
-export ZSH_THEME="powerlevel9k/powerlevel9k"                       
-source ~/.config/powerlevl9k/powerlevel9k.zsh-theme
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions/zsh-autosuggestions.zsh 
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vi_mode vcs)
-POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='000'
-POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='201'
-POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='000'
-POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='046'
-POWERLEVEL9K_VI_MODE_VISUAL_BACKGROUND='000'
-POWERLEVEL9K_VI_MODE_VISUAL_FOREGROUND='171'
-POWERLEVEL9K_USER_DEFAULT_BACKGROUND='000'
-POWERLEVEL9K_USER_DEFAULT_FOREGROUND='093'
-POWERLEVEL9K_HOST_LOCAL_BACKGROUND='055'
-POWERLEVEL9K_HOST_LOCAL_FOREGROUND='015'
-POWERLEVEL9K_HOST_REMOTE_BACKGROUND='015'
-POWERLEVEL9K_HOST_REMOTE_FOREGROUND='009'
-POWERLEVEL9K_USER_SUDO_BACKGROUND='166'
-POWERLEVEL9K_USER_SUDO_FOREGROUND='015'
-POWERLEVEL9K_USER_ROOT_BACKGROUND='009'
-POWERLEVEL9K_USER_ROOT_FOREGROUND='015'
-POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='000'
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='129'
-POWERLEVEL9K_DIR_HOME_BACKGROUND='199'
-POWERLEVEL9K_DIR_HOME_FOREGROUND='239'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='051'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='234'
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND='000'
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND='166'
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='015'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='160'
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='000'
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='178'
-
-

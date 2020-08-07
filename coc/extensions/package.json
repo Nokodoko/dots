@@ -5,6 +5,7 @@
     "coc-go": ">=0.8.0",
     "coc-marketplace": ">=1.7.0",
     "coc-markmap": ">=0.2.5",
+    "coc-snippets": ">=2.1.28",
     "coc-syntax": ">=1.2.4",
     "coc-tag": ">=1.2.4"
   }

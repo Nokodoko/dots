@@ -1765,6 +1765,7 @@ config.bind('!;', 'open -t https://www.shortcutfoo.com/app/dojos/qutebrowser')
 config.bind('!e', 'open -t https://www.ebay.com')
 config.bind('!k', 'open -t https://sw.kovidgoyal.net/kitty')
 config.bind('ag', 'open -t https://www.godoc.org')
+config.bind('!v', 'open -t https://vimawesome.com/?p=2&q=cat%3Alanguage')
 
 ## Bindings for normal mode
 config.bind('Fc', 'config-cycle tabs.show always never')

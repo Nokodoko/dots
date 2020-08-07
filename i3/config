@@ -118,7 +118,8 @@ bindsym $mod+b exec kitty -e calcurse
 bindsym $mod+p exec kitty -e cmatrix
 bindsym $mod+Shift+p exec --no-startup-id scrot -u && exec notify-send "ScreenShot Taken"
 bindsym $mod+i exec kitty -e nvim ~/.config/i3/config
-bindsym $mod+n exec kitty -e tty-clock -c
+bindsym $mod+n exec kitty -e tty-clock -cs
+bindsym $mod+x exec kitty -e xrandr
 bindsym $mod+Shift+B exec kitty -e nvim ~/.zshrc
 bindsym $mod+g exec kitty -e /usr/local/bin/buds.sh
 #bindsym $mod+m exec kitty -e neomutt
@@ -130,7 +131,8 @@ bindsym $mod+Shift+z exec kitty -e glava
 bindsym $mod+F7 exec kitty -e xrandr --output eDP-1 --mode 1920x1080 --output DP-1-1 --off --output HDMI-1 --off
 #bindsym $mod+F8 exec kitty -e xrandr --output DP-1-3 --mode 1920x1080 --rate 59.97 --output eDP-1 --off
 #bindsym $mod+F8 exec kitty -e xrandr --output DP-1-1 --mode 1920x1080 --output eDP-1 --off
-bindsym $mod+F8 exec kitty -e xrandr --output DP-1-3 --mode 3840x2160 --output eDP-1 --off
+#bindsym $mod+F8 exec kitty -e xrandr --output DP-1-3 --mode 3840x2160 --output eDP-1 --off
+bindsym $mod+F8 exec kitty -e xrandr --output HDMI-1 --mode 3840x2160 --output DP-1-2 --mode 3840x2160 --output eDP-1 --off
 #bindsym $mod+F20 exec kitty -e xrandr --output DP-1-2 --mode 1920x1080 --output DP-1-3 --mode 1920x1080 
 
 bindsym $mod+z exec --no-startup-id zoom
@@ -181,7 +183,7 @@ bindsym $mod+d focus child
 # https://github.com/Airblader/i3/tree/gaps-next
 # delete or uncomment the following lines if you do not have it or do not
 # want it
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 gaps inner 5
 gaps outer 5
 #smart_gaps on
@@ -314,7 +316,7 @@ hide_edge_borders both
 
 #exec_always --no-startup-id /usr/local/bin/swallow.py
  exec --no-startup-id python3 $HOME/Programs/i3-master-slave/i3-master-layout.py
-exec_always --no-startup-id feh --bg-center $HOME/Pictures/colorSkull.jpg  
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/urban2.jpg
 exec_always --no-startup-id picom -b --config ~/.config/.picom.conf
 exec_always --no-startup-id dunst
 exec_always --no-startup-id unclutter
