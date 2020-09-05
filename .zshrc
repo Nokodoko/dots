@@ -13,6 +13,7 @@ TERM="rxvt-256color"
 COLORTERM='rxvt-unicode-256color'
 export EDITOR='nvim'
 export BROWSER='qutebrowser'
+export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :45 {}"'
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
@@ -27,7 +28,8 @@ export PF_COL3=5
 #neofetch #--chafa ~/Pictures/goCrazy.jpg
 
 alias sudo='sudo '
-source /usr/share/fzf/completion.zsh
+alias m='mpv'
+source ~/.fzf/key-bindings.zsh
 alias mac='n0ko@Mac'
 alias s='scp'
 alias sr='scp -r'
@@ -131,11 +133,21 @@ alias ar='arandr'
 #| |_| | |_| |
 # \____|\___/ 
 #             
+function gs(){
+    du -a /usr/lib/go/src/ | awk '{print $2}'| rg $@ -vi "test.go"| fzf | xargs -r $EDITOR;
+}
 
+function go_test() {
+  go test $* | sed ''/PASS/s//$(printf "\033[32mPASS\033[0m")/'' | sed ''/SKIP/s//$(printf "\033[34mSKIP\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/'' | GREP_COLOR="01;33" egrep --color=always '\s*[a-zA-Z0-9\-_.]+[:][0-9]+[:]|^'
+}
+alias got='go_test -v'
+alias gt='gotest -v'
+alias gtv='gotest'
 function g1(){
   go run $1 | column
 }
 alias g='go run'
+alias doc='go doc' 
 alias gm='go run main.go'
 alias gg='go get -u'
 alias gb='go build'
@@ -144,7 +156,7 @@ alias gl='go list -m all'
 #alias gmi='go mod .init'
 alias gmt='go mod tidy'
 alias gmv='go mod vendor'
-alias rs='cd ~/go/resources'
+alias rs='cd ~/resources'
 function pro(){
     protoc -I ${PWD} --go_out=. $1
 }
@@ -294,6 +306,7 @@ alias ethservoff='sudo systemctl stop dhcpcd'
 #| |_| | | | |  __/ (__| || (_) | |  | |  __/\__ \
 #|____/|_|_|  \___|\___|\__\___/|_|  |_|\___||___/
                                                  
+alias lib='cd /usr/lib/go/src/'
 alias conf='cd ~/.config; ls'
 alias exe='cd /usr/local/bin && ls'
 alias down='cd ~/Downloads && ls'
@@ -317,6 +330,8 @@ alias vimrc='v ~/.config/nvim/init.vim'
 alias sv='sudo nvim'
 alias music='cd ~/music; ls'
 alias ws='wiki-search'
+alias alg='cd ~/algorithmswithgo.com/module01 && ls'
+alias play='cd ~/goPlay && ls'
 alias arch='cd /usr/share/doc/arch-wiki/html/en/ && ls'
 
 
