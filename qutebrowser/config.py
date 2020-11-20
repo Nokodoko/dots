@@ -1768,6 +1768,11 @@ config.bind('ag', 'open -t https://www.godoc.org')
 config.bind('!v', 'open -t https://vimawesome.com/?p=2&q=cat%3Alanguage')
 config.bind('!c', 'open -t https://courses.calhoun.io/courses/cor_gophercises') 
 config.bind('!d', 'open -t https://golangdocs.com/') 
+config.bind('!t', 'open -t https://tex.stackexchange.com')
+config.bind('!o', 'open -t https://www.overleaf.com/learn')
+config.bind('!l', 'open -t https://latexref.xyz/')
+config.bind('!6', 'open -t https://www.r6-forum.com/') 
+
 ## Bindings for normal mode
 config.bind('Fc', 'config-cycle tabs.show always never')
 config.bind('Fb', 'config-cycle statusbar.hide')
