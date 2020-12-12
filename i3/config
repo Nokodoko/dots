@@ -89,7 +89,6 @@ bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F1 exec qutebrowser
 bindsym $mod+Shift+F1 exec firefox
 bindsym $mod+F9 exec alacritty -e zsh
-bindsym $mod+Shift+F9 exec urxvt -e zsh
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F4 exec slack
 bindsym $mod+Down exec rofi -show 'window'
@@ -109,7 +108,7 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s 
 bindsym $mod+Shift+semicolon exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-bindsym $mod+m exec kitty -e neomutt
+bindsym $mod+m exec kitty -e cmus
 bindsym $mod+Shift+m exec kitty -e pavucontrol
 bindsym $mod+Shift+v exec vlc
 bindsym $mod+Ctrl+r exec kitty -e reboot
@@ -127,11 +126,11 @@ bindsym $mod+g exec kitty -e /usr/local/bin/buds.sh
 bindsym $mod+y exec kitty -e gtop
 bindsym $mod+Shift+y exec kitty -e glances
 bindsym $mod+q exec kitty -e nvim ~/.config/qutebrowser/config.py
-bindsym $mod+Shift+x exec kitty -e nvim ~/lynx.cfg
+bindsym $mod+Shift+x exec kitty -e x
 bindsym $mod+Shift+i exec kitty -e nvim ~/.config/nvim/init.vim
 bindsym $mod+Shift+z exec kitty -e glava
-bindsym $mod+Shift+F7 exec kitty -e xrandr --output eDP-1 --mode 1920x1080 --output DP-1-1 --off --output HDMI-1 --off
-#bindsym $mod+F8 exec kitty -e xrandr --output DP-1-3 --mode 1920x1080 --rate 59.97 --output eDP-1 --off
+bindsym $mod+F7 exec kitty -e xrandr --output eDP-1 --mode 1920x1080 --output DP-1-1 --off --output HDMI-1 --off
+bindsym $mod+Shift+F8 exec kitty -e xrandr --output HDMI-1 --mode 3840x1080 --output eDP-1 --off
 #bindsym $mod+F8 exec kitty -e xrandr --output DP-1-1 --mode 1920x1080 --output eDP-1 --off
 #bindsym $mod+F8 exec kitty -e xrandr --output DP-1-3 --mode 3840x2160 --output eDP-1 --off
 #bindsym $mod+F8 exec kitty -e xrandr --output HDMI-1 --mode 3840x2160 --output DP-1-2 --mode 3840x2160
@@ -188,7 +187,7 @@ bindsym $mod+o focus child
 # delete or uncomment the following lines if you do not have it or do not
 # want it
 for_window [class="^.*"] border pixel 0
-gaps inner 0
+gaps inner 5
 gaps outer 10
 #smart_gaps on
 #smart_borders on
@@ -202,7 +201,8 @@ for_window [title="alsamixer"] floating enable border pixel 1
 for_window [title="lf"] floating enable border pixel 1
 for_window [title="ranger"] floating enable border pixel 1
 for_window [title="ssh"] floating enable border pixel 1
-#for_window [title="kitty"] floating enable border pixel 1
+for_window [title="lynx"] floating enable border pixel 1
+for_window [title="kitty"] floating enable border pixel 1
 for_window [title="vis"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
@@ -278,16 +278,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 100 px or 100 ppt
+        bindsym k resize grow height 100 px or 100 ppt
+        bindsym l resize shrink height 100 px or 100 ppt
+        bindsym semicolon resize grow width 100 px or 100 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 100 px or 100 ppt
+        bindsym Down resize grow height 100 px or 100 ppt
+        bindsym Up resize shrink height 100 px or 100 ppt
+        bindsym Right resize grow width 100 px or 100 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"

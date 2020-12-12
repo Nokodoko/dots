@@ -448,7 +448,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 ## Background color for webpages if unset (or empty to use the theme's
 ## color).
 ## Type: QtColor
-c.colors.webpage.bg = 'white'
+c.colors.webpage.bg = 'black'
 
 ## Which algorithm to use for modifying how colors are rendered with
 ## darkmode.
@@ -475,7 +475,7 @@ c.colors.webpage.darkmode.contrast = 0.0
 ## `colors.webpage.darkmode.threshold.background` to 205.  - "With
 ## selective inversion of everything": Combines the two variants   above.
 ## Type: Bool
-c.colors.webpage.darkmode.enabled = False
+c.colors.webpage.darkmode.enabled = True
 
 ## Render all colors as grayscale. This only has an effect when
 ## `colors.webpage.darkmode.algorithm` is set to `lightness-hsl` or
@@ -502,7 +502,7 @@ c.colors.webpage.darkmode.policy.images = 'never'
 ## Valid values:
 ##   - always: Apply dark mode filter to all frames, regardless of content.
 ##   - smart: Apply dark mode filter to frames based on background color.
-c.colors.webpage.darkmode.policy.page = 'smart'
+c.colors.webpage.darkmode.policy.page = 'always'
 
 ## Threshold for inverting background elements with dark mode. Background
 ## elements with brightness above this threshold will be inverted, and
@@ -521,7 +521,7 @@ c.colors.webpage.darkmode.threshold.text = 256
 
 ## Force `prefers-color-scheme: dark` colors for websites.
 ## Type: Bool
-c.colors.webpage.prefers_color_scheme_dark = False
+c.colors.webpage.prefers_color_scheme_dark = True
 
 ## Number of commands to save in the command history. 0: no history / -1:
 ## unlimited
@@ -806,7 +806,7 @@ c.content.local_storage = True
 ##   - true
 ##   - false
 ##   - ask
-c.content.media_capture = 'ask'
+##c.content.media_capture = 'ask'
 
 ## Allow websites to lock your mouse pointer.
 ## Type: BoolAsk
@@ -1767,11 +1767,13 @@ config.bind('!k', 'open -t https://sw.kovidgoyal.net/kitty')
 config.bind('ag', 'open -t https://www.godoc.org')
 config.bind('!v', 'open -t https://vimawesome.com/?p=2&q=cat%3Alanguage')
 config.bind('!c', 'open -t https://courses.calhoun.io/courses/cor_gophercises') 
-config.bind('!d', 'open -t https://golangdocs.com/') 
-config.bind('!t', 'open -t https://tex.stackexchange.com')
+config.bind('!a', 'open -t https://tex.stackexchange.com')
 config.bind('!o', 'open -t https://www.overleaf.com/learn')
-config.bind('!l', 'open -t https://latexref.xyz/')
+config.bind('!x', 'open -t https://latexref.xyz/')
+config.bind('!s', 'open -t https://suckless.org')
+config.bind('!d', 'open -t https://uionline.detma.org/Claimant/Core/Login.ASPX')
 config.bind('!6', 'open -t https://www.r6-forum.com/') 
+config.bind('!i', 'open -t https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml')
 
 ## Bindings for normal mode
 config.bind('Fc', 'config-cycle tabs.show always never')
@@ -2072,4 +2074,4 @@ config.bind('Y', 'prompt-accept --save yes', mode='yesno')
 config.bind('n', 'prompt-accept no', mode='yesno')
 config.bind('y', 'prompt-accept yes', mode='yesno')
 
-config.set("colors.webpage.darkmode.enabled", True) 
+config.set("colors.webpage.darkmode.enabled", True)
